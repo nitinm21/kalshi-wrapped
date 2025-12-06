@@ -16,6 +16,10 @@ const categoryColors: Record<string, string> = {
 };
 
 export function WhatsNextScreen({ data }: WhatsNextScreenProps) {
+  const handleKalshiClick = () => {
+    window.open('https://kalshi.com', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <ScreenWrapper
       gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)"
@@ -54,6 +58,7 @@ export function WhatsNextScreen({ data }: WhatsNextScreenProps) {
               transition={{ delay: 0.4 + index * 0.15, duration: 0.5 }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onClick={handleKalshiClick}
             >
               <div className="flex items-start justify-between gap-3 sm:gap-4">
                 <div className="flex-1 text-left">
@@ -108,7 +113,7 @@ export function WhatsNextScreen({ data }: WhatsNextScreenProps) {
           className="group relative overflow-hidden rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-indigo-500/25 sm:px-8 sm:py-4 sm:text-base"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={(e) => e.stopPropagation()}
+          onClick={handleKalshiClick}
         >
           {/* Shine effect */}
           <motion.div
