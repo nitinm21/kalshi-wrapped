@@ -113,14 +113,14 @@ export function WorldviewScreen({ data }: WorldviewScreenProps) {
       gradient="linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)"
     >
       <motion.div
-        className="flex max-w-md flex-col items-center text-center"
+        className="flex w-full max-w-md flex-col items-center px-4 text-center"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
       >
         <motion.p
           variants={fadeInUp}
-          className="mb-8 text-lg font-light text-white/90"
+          className="mb-6 text-base font-light text-white/90 sm:mb-8 sm:text-lg"
         >
           Your predictions painted a picture of how you see the world.
         </motion.p>
@@ -128,7 +128,7 @@ export function WorldviewScreen({ data }: WorldviewScreenProps) {
         {/* Sliders */}
         <motion.div
           variants={fadeInUp}
-          className="glass-card mb-8 w-full rounded-2xl p-6"
+          className="glass-card mb-6 w-full rounded-2xl p-4 sm:mb-8 sm:p-6"
         >
           {dimensions.map((dim, index) => (
             <WorldviewSlider
@@ -143,9 +143,9 @@ export function WorldviewScreen({ data }: WorldviewScreenProps) {
         {/* Interpretation */}
         <motion.div
           variants={fadeInUp}
-          className="mb-4 rounded-xl bg-white/5 p-4"
+          className="mb-3 rounded-xl bg-white/5 p-3 sm:mb-4 sm:p-4"
         >
-          <p className="text-sm text-white/85">
+          <p className="text-xs text-white/85 sm:text-sm">
             You bet on the <span className="text-amber-400">Eagles</span> over the dynasty.
             <br />
             You bet on <span className="text-emerald-400">Anora</span> over Wicked.
@@ -156,7 +156,7 @@ export function WorldviewScreen({ data }: WorldviewScreenProps) {
         {data.worldview_summary && (
           <motion.p
             variants={fadeInUp}
-            className="text-sm italic text-white/75"
+            className="text-xs italic text-white/75 sm:text-sm"
           >
             "{data.worldview_summary}"
           </motion.p>

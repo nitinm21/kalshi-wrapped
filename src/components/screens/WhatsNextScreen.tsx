@@ -21,21 +21,21 @@ export function WhatsNextScreen({ data }: WhatsNextScreenProps) {
       gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)"
     >
       <motion.div
-        className="flex max-w-md flex-col items-center text-center"
+        className="flex w-full max-w-md flex-col items-center px-4 text-center"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
       >
         <motion.p
           variants={fadeInUp}
-          className="mb-2 text-lg font-light text-white/60"
+          className="mb-2 text-base font-light text-white/60 sm:text-lg"
         >
           Based on how you see the world, here are
         </motion.p>
 
         <motion.h2
           variants={fadeInUp}
-          className="mb-8 text-2xl font-bold text-white md:text-3xl"
+          className="mb-6 text-xl font-bold text-white sm:mb-8 sm:text-2xl md:text-3xl"
         >
           3 markets to watch
         </motion.h2>
@@ -43,23 +43,23 @@ export function WhatsNextScreen({ data }: WhatsNextScreenProps) {
         {/* Market cards */}
         <motion.div
           variants={fadeInUp}
-          className="mb-8 w-full space-y-4"
+          className="mb-6 w-full space-y-3 sm:mb-8 sm:space-y-4"
         >
           {data.recommended_markets.map((market, index) => (
             <motion.div
               key={index}
-              className="glass-card group cursor-pointer overflow-hidden rounded-xl p-4 transition-all hover:bg-white/10"
+              className="glass-card group cursor-pointer overflow-hidden rounded-xl p-3 transition-all hover:bg-white/10 sm:p-4"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 + index * 0.15, duration: 0.5 }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex items-start justify-between gap-3 sm:gap-4">
                 <div className="flex-1 text-left">
                   {/* Category tag */}
                   <div
-                    className="mb-2 inline-block rounded-full px-2 py-0.5 text-xs font-medium"
+                    className="mb-1.5 inline-block rounded-full px-2 py-0.5 text-xs font-medium sm:mb-2"
                     style={{
                       backgroundColor: (categoryColors[market.category] || '#6366f1') + '20',
                       color: categoryColors[market.category] || '#6366f1',
@@ -69,14 +69,14 @@ export function WhatsNextScreen({ data }: WhatsNextScreenProps) {
                   </div>
 
                   {/* Market title */}
-                  <h3 className="text-sm font-medium text-white md:text-base">
+                  <h3 className="text-xs font-medium text-white sm:text-sm md:text-base">
                     {market.title}
                   </h3>
                 </div>
 
                 {/* Price */}
                 <div className="flex flex-col items-end">
-                  <div className="text-2xl font-bold text-white">
+                  <div className="text-xl font-bold text-white sm:text-2xl">
                     {Math.round(market.price * 100)}¢
                   </div>
                   <div className="text-xs text-white/40">Yes</div>
@@ -85,7 +85,7 @@ export function WhatsNextScreen({ data }: WhatsNextScreenProps) {
 
               {/* Hover indicator */}
               <motion.div
-                className="mt-3 flex items-center justify-center gap-2 text-xs text-white/40 opacity-0 transition-opacity group-hover:opacity-100"
+                className="mt-2 flex items-center justify-center gap-2 text-xs text-white/40 opacity-0 transition-opacity group-hover:opacity-100 sm:mt-3"
               >
                 <span>Trade now</span>
                 <span>→</span>
@@ -97,7 +97,7 @@ export function WhatsNextScreen({ data }: WhatsNextScreenProps) {
         {/* Tagline */}
         <motion.p
           variants={fadeInUp}
-          className="mb-8 text-sm italic text-white/50"
+          className="mb-6 text-xs italic text-white/50 sm:mb-8 sm:text-sm"
         >
           Your instincts. Your edge.
         </motion.p>
@@ -105,7 +105,7 @@ export function WhatsNextScreen({ data }: WhatsNextScreenProps) {
         {/* CTA Button */}
         <motion.button
           variants={fadeInUp}
-          className="group relative overflow-hidden rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:shadow-indigo-500/25"
+          className="group relative overflow-hidden rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-indigo-500/25 sm:px-8 sm:py-4 sm:text-base"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={(e) => e.stopPropagation()}

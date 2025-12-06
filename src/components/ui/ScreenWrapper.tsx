@@ -50,7 +50,7 @@ export function ScreenWrapper({
       initial="initial"
       animate="animate"
       exit="exit"
-      className={`absolute inset-0 flex flex-col items-center justify-center overflow-hidden px-6 py-16 ${className}`}
+      className={`absolute inset-0 flex flex-col items-center justify-center overflow-y-auto overflow-x-hidden px-4 py-12 sm:px-6 sm:py-16 ${className}`}
       style={bgStyle}
     >
       {children}

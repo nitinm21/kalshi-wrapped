@@ -44,7 +44,7 @@ export function PersonalityScreen({ data }: PersonalityScreenProps) {
       gradient="radial-gradient(circle at 50% 50%, #1a0a0f 0%, #0a0a0a 100%)"
     >
       <motion.div
-        className="flex max-w-2xl flex-col items-center text-center"
+        className="flex w-full max-w-2xl flex-col items-center text-center"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
@@ -54,7 +54,7 @@ export function PersonalityScreen({ data }: PersonalityScreenProps) {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="mb-12 text-sm font-medium uppercase tracking-[0.3em] text-white/40"
+          className="mb-6 px-4 text-xs font-medium uppercase tracking-[0.2em] text-white/40 sm:mb-12 sm:text-sm sm:tracking-[0.3em]"
         >
           Your prediction style is hard to pin down, but if we had to...
         </motion.p>
@@ -69,12 +69,12 @@ export function PersonalityScreen({ data }: PersonalityScreenProps) {
             type: 'spring',
             bounce: 0.3,
           }}
-          className="relative mb-10"
+          className="relative mb-6 sm:mb-10"
           style={{ perspective: '1000px' }}
         >
           {/* Glow rings */}
           <motion.div
-            className="absolute -inset-8 rounded-full opacity-40 blur-2xl"
+            className="absolute -inset-4 rounded-full opacity-40 blur-xl sm:-inset-8 sm:blur-2xl"
             style={{ background: gradient }}
             animate={{
               scale: [1, 1.3, 1],
@@ -91,7 +91,7 @@ export function PersonalityScreen({ data }: PersonalityScreenProps) {
           <div className="relative">
             {/* Shadow layer */}
             <motion.div
-              className="absolute inset-0 translate-y-2"
+              className="absolute inset-0 translate-y-1 sm:translate-y-2"
               style={{
                 clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)',
                 background: 'rgba(0, 0, 0, 0.5)',
@@ -101,7 +101,7 @@ export function PersonalityScreen({ data }: PersonalityScreenProps) {
 
             {/* Outer hexagon */}
             <motion.div
-              className="relative h-56 w-56"
+              className="relative h-40 w-40 sm:h-56 sm:w-56"
               style={{
                 clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)',
                 background: `linear-gradient(135deg, ${accent}40 0%, ${accent}20 100%)`,
@@ -122,14 +122,14 @@ export function PersonalityScreen({ data }: PersonalityScreenProps) {
             >
               {/* Inner hexagon with icon */}
               <div
-                className="absolute inset-4 flex items-center justify-center"
+                className="absolute inset-2 flex items-center justify-center sm:inset-4"
                 style={{
                   clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)',
                   background: gradient,
                 }}
               >
                 <motion.span
-                  className="text-7xl"
+                  className="text-5xl sm:text-7xl"
                   animate={{
                     scale: [1, 1.1, 1],
                     rotate: [0, 5, -5, 0],
@@ -161,7 +161,7 @@ export function PersonalityScreen({ data }: PersonalityScreenProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="mb-8 text-6xl font-black uppercase leading-none tracking-tight md:text-7xl"
+          className="mb-6 px-4 text-4xl font-black uppercase leading-none tracking-tight sm:mb-8 sm:text-6xl md:text-7xl"
           style={{
             background: gradient,
             WebkitBackgroundClip: 'text',
@@ -180,7 +180,7 @@ export function PersonalityScreen({ data }: PersonalityScreenProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="mb-12 max-w-lg text-xl leading-relaxed text-white/90"
+          className="mb-8 max-w-lg px-4 text-base leading-relaxed text-white/90 sm:mb-12 sm:text-xl"
           style={{
             fontFamily: '"DM Sans", system-ui, sans-serif',
             fontWeight: 400,
@@ -194,7 +194,7 @@ export function PersonalityScreen({ data }: PersonalityScreenProps) {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          className="relative overflow-hidden rounded-2xl px-10 py-6"
+          className="relative mx-4 overflow-hidden rounded-2xl px-6 py-4 sm:px-10 sm:py-6"
           style={{
             background: `linear-gradient(135deg, ${accent}15 0%, transparent 100%)`,
             border: `2px solid ${accent}30`,
@@ -217,10 +217,10 @@ export function PersonalityScreen({ data }: PersonalityScreenProps) {
             }}
           />
 
-          <div className="relative flex items-baseline gap-2">
-            <span className="text-lg font-medium text-white/70">Only</span>
+          <div className="relative flex flex-col items-center gap-1 sm:flex-row sm:items-baseline sm:gap-2">
+            <span className="text-sm font-medium text-white/70 sm:text-lg">Only</span>
             <span
-              className="text-5xl font-black tabular-nums"
+              className="text-4xl font-black tabular-nums sm:text-5xl"
               style={{
                 background: gradient,
                 WebkitBackgroundClip: 'text',
@@ -231,7 +231,7 @@ export function PersonalityScreen({ data }: PersonalityScreenProps) {
             >
               {data.personality_percentile}%
             </span>
-            <span className="text-lg font-medium text-white/70">of traders share this profile.</span>
+            <span className="text-sm font-medium text-white/70 sm:text-lg">of traders share this profile.</span>
           </div>
         </motion.div>
       </motion.div>

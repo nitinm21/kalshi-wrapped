@@ -32,6 +32,13 @@ html, body, #root {
   position: relative;
 }
 
+/* Enable smooth scrolling on mobile */
+@supports (-webkit-overflow-scrolling: touch) {
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

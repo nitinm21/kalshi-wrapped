@@ -16,14 +16,14 @@ export function MissedCallScreen({ data }: MissedCallScreenProps) {
       gradient="linear-gradient(135deg, #1c1917 0%, #292524 50%, #1c1917 100%)"
     >
       <motion.div
-        className="flex max-w-md flex-col items-center text-center"
+        className="flex w-full max-w-md flex-col items-center px-4 text-center"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
       >
         <motion.p
           variants={fadeInUp}
-          className="mb-8 text-lg font-light text-white/50"
+          className="mb-6 text-base font-light text-white/50 sm:mb-8 sm:text-lg"
         >
           But there was one that slipped...
         </motion.p>
@@ -31,12 +31,12 @@ export function MissedCallScreen({ data }: MissedCallScreenProps) {
         {/* Market name */}
         <motion.div
           variants={fadeInUp}
-          className="mb-8 px-4"
+          className="mb-6 px-4 sm:mb-8"
         >
           <div className="mb-2 text-xs font-medium uppercase tracking-wider text-rose-400/70">
             The One That Got Away
           </div>
-          <h2 className="text-2xl font-medium text-white/80 md:text-3xl">
+          <h2 className="text-xl font-medium text-white/80 sm:text-2xl md:text-3xl">
             "{worst_miss.market}"
           </h2>
         </motion.div>
@@ -44,15 +44,15 @@ export function MissedCallScreen({ data }: MissedCallScreenProps) {
         {/* Price comparison */}
         <motion.div
           variants={fadeInUp}
-          className="mb-8 flex w-full max-w-xs items-center justify-center gap-6"
+          className="mb-6 flex w-full max-w-xs flex-col items-center justify-center gap-4 sm:mb-8 sm:flex-row sm:gap-6"
         >
           <div className="text-center">
             <div className="mb-1 text-xs text-white/40">You sold at</div>
-            <div className="text-3xl font-bold text-white/60">{exitPercent}¢</div>
+            <div className="text-2xl font-bold text-white/60 sm:text-3xl">{exitPercent}¢</div>
           </div>
 
           <motion.div
-            className="text-2xl text-white/30"
+            className="text-xl text-white/30 sm:text-2xl"
             animate={{ x: [0, 5, 0] }}
             transition={{ duration: 1, repeat: Infinity }}
           >
@@ -61,23 +61,23 @@ export function MissedCallScreen({ data }: MissedCallScreenProps) {
 
           <div className="text-center">
             <div className="mb-1 text-xs text-white/40">It settled at</div>
-            <div className="text-3xl font-bold text-rose-400">$1.00</div>
+            <div className="text-2xl font-bold text-rose-400 sm:text-3xl">$1.00</div>
           </div>
         </motion.div>
 
         {/* Missed opportunity */}
         <motion.div
           variants={fadeInUp}
-          className="glass-card mb-8 rounded-2xl p-6"
+          className="glass-card mb-6 rounded-2xl p-4 sm:mb-8 sm:p-6"
           style={{
             background: 'rgba(239, 68, 68, 0.05)',
             borderColor: 'rgba(239, 68, 68, 0.1)',
           }}
         >
           <div className="mb-2 flex items-center justify-center gap-2">
-            <span className="text-4xl font-bold text-rose-400/80">-{loss}¢</span>
+            <span className="text-3xl font-bold text-rose-400/80 sm:text-4xl">-{loss}¢</span>
           </div>
-          <p className="text-sm text-white/50">
+          <p className="text-xs text-white/50 sm:text-sm">
             left on the table per share
           </p>
         </motion.div>
@@ -86,9 +86,9 @@ export function MissedCallScreen({ data }: MissedCallScreenProps) {
         {worst_miss.context && (
           <motion.div
             variants={fadeInUp}
-            className="mb-4 rounded-xl bg-white/5 p-4"
+            className="mb-4 rounded-xl bg-white/5 p-3 sm:p-4"
           >
-            <p className="text-sm text-white/60">{worst_miss.context}</p>
+            <p className="text-xs text-white/60 sm:text-sm">{worst_miss.context}</p>
           </motion.div>
         )}
 

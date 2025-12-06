@@ -44,7 +44,7 @@ export function BestCallScreen({ data }: BestCallScreenProps) {
       gradient="radial-gradient(ellipse at bottom, #003221 0%, #000000 60%, #000000 100%)"
     >
       <motion.div
-        className="flex max-w-2xl flex-col items-center text-center"
+        className="flex w-full max-w-2xl flex-col items-center px-4 text-center"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
@@ -52,10 +52,10 @@ export function BestCallScreen({ data }: BestCallScreenProps) {
         {/* Header badge */}
         <motion.div
           variants={scaleIn}
-          className="mb-8 flex items-center gap-3 rounded-full bg-[#09C285]/10 px-6 py-2 ring-1 ring-[#09C285]/30"
+          className="mb-6 flex items-center gap-2 rounded-full bg-[#09C285]/10 px-4 py-2 ring-1 ring-[#09C285]/30 sm:mb-8 sm:gap-3 sm:px-6"
         >
           <div className="h-2 w-2 animate-pulse rounded-full bg-[#09C285]" />
-          <span className="text-sm font-semibold uppercase tracking-wider text-[#09C285]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#09C285] sm:text-sm">
             Your best call
           </span>
         </motion.div>
@@ -63,10 +63,10 @@ export function BestCallScreen({ data }: BestCallScreenProps) {
         {/* Market name with dramatic reveal */}
         <motion.div
           variants={fadeInUp}
-          className="mb-10 px-6"
+          className="mb-6 px-4 sm:mb-10 sm:px-6"
         >
           <motion.h2
-            className="text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl"
+            className="text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -74,7 +74,7 @@ export function BestCallScreen({ data }: BestCallScreenProps) {
             "{best_call.market}"
           </motion.h2>
           <motion.div
-            className="mx-auto mt-4 h-0.5 w-24 rounded-full bg-gradient-to-r from-transparent via-[#09C285] to-transparent"
+            className="mx-auto mt-3 h-0.5 w-20 rounded-full bg-gradient-to-r from-transparent via-[#09C285] to-transparent sm:mt-4 sm:w-24"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.8, duration: 1 }}
@@ -84,7 +84,7 @@ export function BestCallScreen({ data }: BestCallScreenProps) {
         {/* Premium chart card */}
         <motion.div
           variants={fadeInUp}
-          className="glass-card-premium relative mb-8 w-full overflow-hidden rounded-3xl p-6"
+          className="glass-card-premium relative mb-6 w-full overflow-hidden rounded-2xl p-4 sm:mb-8 sm:rounded-3xl sm:p-6"
         >
           <svg viewBox="0 0 320 140" className="w-full">
             {/* Gradient background area */}
@@ -192,33 +192,33 @@ export function BestCallScreen({ data }: BestCallScreenProps) {
           </svg>
 
           {/* Enhanced price labels */}
-          <div className="mt-4 flex items-center justify-between">
+          <div className="mt-3 flex items-center justify-between sm:mt-4">
             <motion.div
-              className="flex flex-col items-start gap-1"
+              className="flex flex-col items-start gap-0.5 sm:gap-1"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.5 }}
             >
               <span className="text-xs font-medium uppercase tracking-wider text-white/40">Entry</span>
-              <span className="text-xl font-bold text-[#09C285]">{entryPercent}¢</span>
+              <span className="text-lg font-bold text-[#09C285] sm:text-xl">{entryPercent}¢</span>
             </motion.div>
             <motion.div
-              className="flex items-center gap-2 rounded-full bg-[#09C285]/10 px-4 py-2"
+              className="flex items-center gap-1.5 rounded-full bg-[#09C285]/10 px-3 py-1.5 sm:gap-2 sm:px-4 sm:py-2"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 3.2 }}
             >
               <span className="text-xs text-white/50">→</span>
-              <span className="text-sm font-semibold text-[#09C285]">+{profit}¢</span>
+              <span className="text-xs font-semibold text-[#09C285] sm:text-sm">+{profit}¢</span>
             </motion.div>
             <motion.div
-              className="flex flex-col items-end gap-1"
+              className="flex flex-col items-end gap-0.5 sm:gap-1"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.5 }}
             >
               <span className="text-xs font-medium uppercase tracking-wider text-white/40">Settled</span>
-              <span className="text-xl font-bold text-[#0FE29B]">$1.00</span>
+              <span className="text-lg font-bold text-[#0FE29B] sm:text-xl">$1.00</span>
             </motion.div>
           </div>
         </motion.div>
@@ -227,7 +227,7 @@ export function BestCallScreen({ data }: BestCallScreenProps) {
         {best_call.context && (
           <motion.p
             variants={fadeInUp}
-            className="mb-6 max-w-lg px-4 text-base leading-relaxed text-white/60"
+            className="mb-4 max-w-lg px-4 text-sm leading-relaxed text-white/60 sm:mb-6 sm:text-base"
           >
             {best_call.context}
           </motion.p>
@@ -236,13 +236,13 @@ export function BestCallScreen({ data }: BestCallScreenProps) {
         {/* Timeline */}
         <motion.div
           variants={fadeInUp}
-          className="flex items-center gap-4 text-xs text-white/40"
+          className="flex flex-col items-center gap-2 text-xs text-white/40 sm:flex-row sm:gap-4"
         >
           <div className="flex items-center gap-2">
             <div className="h-1.5 w-1.5 rounded-full bg-[#09C285]/50" />
             <span>{formatDate(best_call.entry_date)}</span>
           </div>
-          <div className="h-px w-12 bg-gradient-to-r from-[#09C285]/50 to-[#09C285]/10" />
+          <div className="hidden h-px w-12 bg-gradient-to-r from-[#09C285]/50 to-[#09C285]/10 sm:block" />
           <div className="flex items-center gap-2">
             <div className="h-1.5 w-1.5 rounded-full bg-[#0FE29B]" />
             <span>{formatDate(best_call.resolution_date)}</span>

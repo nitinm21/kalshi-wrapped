@@ -15,23 +15,23 @@ export function ContrarianScreen({ data }: ContrarianScreenProps) {
       gradient="radial-gradient(ellipse at center, #1a0033 0%, #000000 60%, #000000 100%)"
     >
       <motion.div
-        className="flex max-w-md flex-col items-center text-center"
+        className="flex w-full max-w-md flex-col items-center px-4 text-center"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
       >
         <motion.p
           variants={fadeInUp}
-          className="mb-6 text-lg font-light text-white/60"
+          className="mb-4 text-base font-light text-white/60 sm:mb-6 sm:text-lg"
         >
           When the crowd said one thing...
         </motion.p>
 
         <motion.div
           variants={scaleIn}
-          className="mb-14"
+          className="mb-10 px-4 sm:mb-14"
         >
-          <h2 className="text-3xl font-bold text-[#AA00FF] md:text-4xl">
+          <h2 className="text-2xl font-bold text-[#AA00FF] sm:text-3xl md:text-4xl">
             {isContrarian ? 'You said "prove it."' : 'You trusted the consensus.'}
           </h2>
         </motion.div>
@@ -39,9 +39,9 @@ export function ContrarianScreen({ data }: ContrarianScreenProps) {
         {/* Spectrum */}
         <motion.div
           variants={fadeInUp}
-          className="mb-10 w-full max-w-sm"
+          className="mb-8 w-full max-w-sm sm:mb-10"
         >
-          <div className="mb-3 flex justify-between text-sm text-white/50">
+          <div className="mb-2 flex justify-between text-xs text-white/50 sm:mb-3 sm:text-sm">
             <span>Consensus</span>
             <span>Contrarian</span>
           </div>
@@ -63,9 +63,9 @@ export function ContrarianScreen({ data }: ContrarianScreenProps) {
 
             {/* Marker */}
             <motion.div
-              className="absolute top-1/2 h-6 w-6 -translate-y-1/2 rounded-full border-2 border-white bg-white shadow-lg"
+              className="absolute top-1/2 h-5 w-5 -translate-y-1/2 rounded-full border-2 border-white bg-white shadow-lg sm:h-6 sm:w-6"
               initial={{ left: '0%' }}
-              animate={{ left: `calc(${contrarianPercent}% - 12px)` }}
+              animate={{ left: `calc(${contrarianPercent}% - 10px)` }}
               transition={{
                 delay: 0.5,
                 duration: 1,
@@ -93,15 +93,15 @@ export function ContrarianScreen({ data }: ContrarianScreenProps) {
         {/* Stats card */}
         <motion.div
           variants={fadeInUp}
-          className="glass-card-premium rounded-3xl p-8"
+          className="glass-card-premium rounded-2xl p-6 sm:rounded-3xl sm:p-8"
         >
-          <div className="mb-4 text-5xl font-bold text-[#AA00FF] md:text-6xl">
+          <div className="mb-3 text-4xl font-bold text-[#AA00FF] sm:mb-4 sm:text-5xl md:text-6xl">
             {contrarianPercent}%
           </div>
-          <p className="mb-6 text-lg text-white/70">
+          <p className="mb-4 text-base text-white/70 sm:mb-6 sm:text-lg">
             of the time you bet against favorites
           </p>
-          <div className="border-t border-[#AA00FF]/20 pt-4 text-sm text-white/60">
+          <div className="border-t border-[#AA00FF]/20 pt-3 text-xs text-white/60 sm:pt-4 sm:text-sm">
             That puts you in the top{' '}
             <span className="font-bold text-[#09C285]">
               {100 - data.contrarian_percentile}%
@@ -113,7 +113,7 @@ export function ContrarianScreen({ data }: ContrarianScreenProps) {
         {/* Subtext */}
         <motion.p
           variants={fadeInUp}
-          className="mt-8 text-base italic text-white/40"
+          className="mt-6 text-sm italic text-white/40 sm:mt-8 sm:text-base"
         >
           "Vegas sets the line. You find the value."
         </motion.p>

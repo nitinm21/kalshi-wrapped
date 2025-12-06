@@ -23,7 +23,7 @@ export function OpeningScreen({ data }: OpeningScreenProps) {
       gradient="radial-gradient(ellipse at top, #003221 0%, #000000 50%, #000000 100%)"
     >
       <motion.div
-        className="relative z-10 flex max-w-lg flex-col items-center text-center"
+        className="relative z-10 flex w-full max-w-lg flex-col items-center px-4 text-center"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
@@ -31,12 +31,12 @@ export function OpeningScreen({ data }: OpeningScreenProps) {
         {/* Logo with shimmer */}
         <motion.div
           variants={fadeInDown}
-          className="mb-12"
+          className="mb-8 sm:mb-12"
         >
-          <div className="gradient-text-kalshi mb-2 text-lg font-bold uppercase tracking-[0.35em]">
+          <div className="gradient-text-kalshi mb-2 text-base font-bold uppercase tracking-[0.25em] sm:text-lg sm:tracking-[0.35em]">
             Kalshi
           </div>
-          <div className="text-xs font-semibold uppercase tracking-[0.4em] text-[#09C285]/60">
+          <div className="text-xs font-semibold uppercase tracking-[0.3em] text-[#09C285]/60 sm:tracking-[0.4em]">
             Wrapped 2025
           </div>
         </motion.div>
@@ -44,7 +44,7 @@ export function OpeningScreen({ data }: OpeningScreenProps) {
         {/* Main text with dramatic styling */}
         <motion.p
           variants={fadeInUp}
-          className="mb-4 text-2xl font-light leading-tight tracking-tight text-white/70 md:text-3xl"
+          className="mb-3 text-xl font-light leading-tight tracking-tight text-white/70 sm:mb-4 sm:text-2xl md:text-3xl"
         >
           In 2025, you didn't just
           <br />
@@ -53,13 +53,13 @@ export function OpeningScreen({ data }: OpeningScreenProps) {
 
         <motion.div
           variants={scaleIn}
-          className="relative mb-16"
+          className="relative mb-10 sm:mb-16"
         >
-          <h1 className="text-5xl font-bold text-[#09C285] md:text-6xl lg:text-7xl">
+          <h1 className="text-4xl font-bold text-[#09C285] sm:text-5xl md:text-6xl lg:text-7xl">
             You traded it.
           </h1>
           <motion.div
-            className="absolute -bottom-2 left-1/2 h-1 w-32 -translate-x-1/2 rounded-full bg-gradient-to-r from-transparent via-[#09C285] to-transparent"
+            className="absolute -bottom-2 left-1/2 h-1 w-24 -translate-x-1/2 rounded-full bg-gradient-to-r from-transparent via-[#09C285] to-transparent sm:w-32"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.8, duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -69,16 +69,16 @@ export function OpeningScreen({ data }: OpeningScreenProps) {
         {/* Stats with premium styling */}
         <motion.div
           variants={fadeInUp}
-          className="mb-8 flex flex-col items-center gap-4"
+          className="mb-6 flex flex-col items-center gap-3 sm:mb-8 sm:gap-4"
         >
-          <div className="flex flex-col items-center gap-3">
-            <span className="text-base font-medium uppercase tracking-wider text-white/50">
+          <div className="flex flex-col items-center gap-2 sm:gap-3">
+            <span className="text-sm font-medium uppercase tracking-wider text-white/50 sm:text-base">
               You made
             </span>
             <div className="relative">
               <AnimatedNumber
                 value={data.total_predictions}
-                className="text-7xl font-bold text-white md:text-8xl"
+                className="text-6xl font-bold text-white sm:text-7xl md:text-8xl"
                 delay={1}
               />
               <motion.div
@@ -97,7 +97,7 @@ export function OpeningScreen({ data }: OpeningScreenProps) {
           </div>
           <motion.div
             variants={fadeInUp}
-            className="text-lg text-white/70 md:text-xl"
+            className="text-base text-white/70 sm:text-lg md:text-xl"
           >
             predictions across{' '}
             <span className="font-bold text-[#09C285]">{data.total_markets}</span>{' '}
@@ -110,12 +110,12 @@ export function OpeningScreen({ data }: OpeningScreenProps) {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 1.2, type: 'spring', stiffness: 200, damping: 20 }}
-          className="glass-card-premium group relative overflow-hidden rounded-2xl px-8 py-4 hover-lift"
+          className="glass-card-premium group relative overflow-hidden rounded-2xl px-6 py-3 hover-lift sm:px-8 sm:py-4"
         >
-          <div className="relative z-10 flex items-center gap-2">
-            <span className="text-sm font-medium text-white/60">More than</span>
-            <span className="text-2xl font-bold text-[#09C285]">{data.percentile}%</span>
-            <span className="text-sm font-medium text-white/60">of traders</span>
+          <div className="relative z-10 flex flex-col items-center gap-1 sm:flex-row sm:gap-2">
+            <span className="text-xs font-medium text-white/60 sm:text-sm">More than</span>
+            <span className="text-xl font-bold text-[#09C285] sm:text-2xl">{data.percentile}%</span>
+            <span className="text-xs font-medium text-white/60 sm:text-sm">of traders</span>
           </div>
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-[#09C285]/0 via-[#09C285]/10 to-[#09C285]/0"

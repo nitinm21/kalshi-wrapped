@@ -20,14 +20,14 @@ export function DaysInArenaScreen({ data }: DaysInArenaScreenProps) {
       gradient="linear-gradient(135deg, #0a1628 0%, #1a2744 50%, #0a1628 100%)"
     >
       <motion.div
-        className="flex max-w-md flex-col items-center text-center"
+        className="flex w-full max-w-md flex-col items-center px-4 text-center"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
       >
         <motion.p
           variants={fadeInUp}
-          className="mb-8 text-lg font-light text-white/60"
+          className="mb-6 text-base font-light text-white/60 sm:mb-8 sm:text-lg"
         >
           You had skin in the game for
         </motion.p>
@@ -35,19 +35,19 @@ export function DaysInArenaScreen({ data }: DaysInArenaScreenProps) {
         {/* Days count */}
         <motion.div
           variants={fadeInUp}
-          className="mb-8 flex items-baseline gap-3"
+          className="mb-6 flex items-baseline gap-2 sm:mb-8 sm:gap-3"
         >
           <AnimatedNumber
             value={data.days_active}
-            className="text-7xl font-bold text-white md:text-8xl"
+            className="text-6xl font-bold text-white sm:text-7xl md:text-8xl"
             delay={0.3}
           />
-          <span className="text-2xl font-light text-white/60">days</span>
+          <span className="text-xl font-light text-white/60 sm:text-2xl">days</span>
         </motion.div>
 
         <motion.p
           variants={fadeInUp}
-          className="mb-10 text-xl text-white/80"
+          className="mb-8 text-lg text-white/80 sm:mb-10 sm:text-xl"
         >
           this year
         </motion.p>
@@ -55,27 +55,27 @@ export function DaysInArenaScreen({ data }: DaysInArenaScreenProps) {
         {/* Streak highlight */}
         <motion.div
           variants={fadeInUp}
-          className="glass-card w-full rounded-2xl p-6"
+          className="glass-card mb-6 w-full rounded-2xl p-4 sm:mb-8 sm:p-6"
         >
-          <div className="mb-4 text-sm font-medium uppercase tracking-wider text-amber-400">
+          <div className="mb-3 text-xs font-medium uppercase tracking-wider text-amber-400 sm:mb-4 sm:text-sm">
             Longest Streak
           </div>
 
-          <div className="mb-3 flex items-baseline justify-center gap-2">
+          <div className="mb-2 flex items-baseline justify-center gap-2 sm:mb-3">
             <AnimatedNumber
               value={data.longest_streak}
-              className="text-5xl font-bold text-white"
+              className="text-4xl font-bold text-white sm:text-5xl"
               delay={0.6}
             />
-            <span className="text-lg text-white/60">days straight</span>
+            <span className="text-base text-white/60 sm:text-lg">days straight</span>
           </div>
 
-          <div className="mb-4 text-sm text-white/50">
+          <div className="mb-3 text-xs text-white/50 sm:mb-4 sm:text-sm">
             {formatDate(startDate)} — {formatDate(endDate)}
           </div>
 
           {data.streak_context && (
-            <div className="border-t border-white/10 pt-4 text-sm text-white/70">
+            <div className="border-t border-white/10 pt-3 text-xs text-white/70 sm:pt-4 sm:text-sm">
               {data.streak_context}
             </div>
           )}
@@ -84,10 +84,10 @@ export function DaysInArenaScreen({ data }: DaysInArenaScreenProps) {
         {/* Calendar visualization */}
         <motion.div
           variants={fadeInUp}
-          className="mt-8 flex flex-wrap justify-center gap-1"
+          className="mt-6 flex flex-wrap justify-center gap-0.5 sm:mt-8 sm:gap-1"
         >
           {Array.from({ length: 52 }).map((_, weekIndex) => (
-            <div key={weekIndex} className="flex flex-col gap-1">
+            <div key={weekIndex} className="flex flex-col gap-0.5 sm:gap-1">
               {Array.from({ length: 7 }).map((_, dayIndex) => {
                 const dayNumber = weekIndex * 7 + dayIndex;
                 const isActive = dayNumber < data.days_active;
@@ -96,7 +96,7 @@ export function DaysInArenaScreen({ data }: DaysInArenaScreenProps) {
                 return (
                   <motion.div
                     key={dayIndex}
-                    className={`h-2 w-2 rounded-sm ${
+                    className={`h-1.5 w-1.5 rounded-sm sm:h-2 sm:w-2 ${
                       isStreak
                         ? 'bg-amber-400'
                         : isActive

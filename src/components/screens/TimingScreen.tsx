@@ -33,14 +33,14 @@ export function TimingScreen({ data }: TimingScreenProps) {
       gradient="linear-gradient(135deg, #0c1222 0%, #1e2a4a 50%, #0c1222 100%)"
     >
       <motion.div
-        className="flex max-w-md flex-col items-center text-center"
+        className="flex w-full max-w-md flex-col items-center px-4 text-center"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
       >
         <motion.p
           variants={fadeInUp}
-          className="mb-4 text-lg font-light text-white/60"
+          className="mb-3 text-base font-light text-white/60 sm:mb-4 sm:text-lg"
         >
           When you enter a market, the average price is
         </motion.p>
@@ -48,18 +48,18 @@ export function TimingScreen({ data }: TimingScreenProps) {
         {/* Average entry price */}
         <motion.div
           variants={fadeInUp}
-          className="mb-8 flex items-baseline gap-1"
+          className="mb-6 flex items-baseline gap-1 sm:mb-8"
         >
-          <span className="text-6xl font-bold text-cyan-400">{avgEntryPercent}</span>
-          <span className="text-2xl text-cyan-400">¢</span>
+          <span className="text-5xl font-bold text-cyan-400 sm:text-6xl">{avgEntryPercent}</span>
+          <span className="text-xl text-cyan-400 sm:text-2xl">¢</span>
         </motion.div>
 
         {/* Timing spectrum */}
         <motion.div
           variants={fadeInUp}
-          className="mb-8 w-full max-w-sm"
+          className="mb-6 w-full max-w-sm sm:mb-8"
         >
-          <div className="mb-4 flex justify-between text-xs text-white/50">
+          <div className="mb-3 flex justify-between text-xs text-white/50 sm:mb-4">
             <span>First In</span>
             <span>Wait and See</span>
           </div>
@@ -86,7 +86,7 @@ export function TimingScreen({ data }: TimingScreenProps) {
             <motion.div
               className="absolute top-1/2 flex -translate-y-1/2 flex-col items-center"
               initial={{ left: '0%' }}
-              animate={{ left: `calc(${profile.position * 100}% - 20px)` }}
+              animate={{ left: `calc(${profile.position * 100}% - 16px)` }}
               transition={{
                 delay: 0.5,
                 duration: 1.2,
@@ -95,7 +95,7 @@ export function TimingScreen({ data }: TimingScreenProps) {
               }}
             >
               <motion.div
-                className="h-10 w-10 rounded-full border-3 border-white bg-gradient-to-br from-cyan-400 to-indigo-500 shadow-lg"
+                className="h-8 w-8 rounded-full border-2 border-white bg-gradient-to-br from-cyan-400 to-indigo-500 shadow-lg sm:h-10 sm:w-10 sm:border-3"
                 animate={{
                   scale: [1, 1.1, 1],
                 }}
@@ -121,10 +121,10 @@ export function TimingScreen({ data }: TimingScreenProps) {
         {/* Profile reveal */}
         <motion.div
           variants={fadeInUp}
-          className="mb-6"
+          className="mb-4 sm:mb-6"
         >
-          <p className="mb-2 text-sm text-white/50">That makes you an</p>
-          <h2 className="text-3xl font-bold text-white md:text-4xl">
+          <p className="mb-2 text-xs text-white/50 sm:text-sm">That makes you an</p>
+          <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
             {profile.title}
           </h2>
         </motion.div>
@@ -132,16 +132,16 @@ export function TimingScreen({ data }: TimingScreenProps) {
         {/* Description */}
         <motion.div
           variants={fadeInUp}
-          className="glass-card rounded-2xl px-6 py-4"
+          className="glass-card rounded-2xl px-4 py-3 sm:px-6 sm:py-4"
         >
-          <p className="text-white/70">{profile.description}</p>
+          <p className="text-sm text-white/70 sm:text-base">{profile.description}</p>
         </motion.div>
 
         {/* Example trade */}
         {data.timing_example && (
           <motion.div
             variants={fadeInUp}
-            className="mt-6 rounded-xl bg-white/5 p-4"
+            className="mt-4 rounded-xl bg-white/5 p-3 sm:mt-6 sm:p-4"
           >
             <p className="text-xs italic text-white/50">
               "{data.timing_example}"

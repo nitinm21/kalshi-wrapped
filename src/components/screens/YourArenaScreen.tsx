@@ -36,14 +36,14 @@ export function YourArenaScreen({ data }: YourArenaScreenProps) {
       gradient="linear-gradient(135deg, #1a0a1e 0%, #2d1a3e 50%, #1a0a1e 100%)"
     >
       <motion.div
-        className="flex max-w-md flex-col items-center text-center"
+        className="flex w-full max-w-md flex-col items-center px-4 text-center"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
       >
         <motion.p
           variants={fadeInUp}
-          className="mb-8 text-lg font-light text-white/60"
+          className="mb-6 text-base font-light text-white/60 sm:mb-8 sm:text-lg"
         >
           You couldn't stay away from...
         </motion.p>
@@ -51,10 +51,10 @@ export function YourArenaScreen({ data }: YourArenaScreenProps) {
         {/* Main category reveal */}
         <motion.div
           variants={fadeInUp}
-          className="relative mb-6"
+          className="relative mb-4 sm:mb-6"
         >
           <motion.div
-            className="absolute inset-0 rounded-full blur-2xl"
+            className="absolute inset-0 rounded-full blur-xl sm:blur-2xl"
             style={{ backgroundColor: categoryColors[topCategory[0]] + '40' }}
             animate={{
               scale: [1, 1.2, 1],
@@ -66,7 +66,7 @@ export function YourArenaScreen({ data }: YourArenaScreenProps) {
             }}
           />
           <div
-            className="relative flex h-40 w-40 items-center justify-center rounded-full text-7xl"
+            className="relative flex h-32 w-32 items-center justify-center rounded-full text-5xl sm:h-40 sm:w-40 sm:text-7xl"
             style={{ backgroundColor: categoryColors[topCategory[0]] + '20' }}
           >
             {categoryIcons[topCategory[0]] || '🎯'}
@@ -75,7 +75,7 @@ export function YourArenaScreen({ data }: YourArenaScreenProps) {
 
         <motion.h2
           variants={fadeInUp}
-          className="mb-3 text-5xl font-bold"
+          className="mb-2 text-4xl font-bold sm:mb-3 sm:text-5xl"
           style={{ color: categoryColors[topCategory[0]] }}
         >
           {topCategory[0]}
@@ -83,7 +83,7 @@ export function YourArenaScreen({ data }: YourArenaScreenProps) {
 
         <motion.p
           variants={fadeInUp}
-          className="mb-8 text-xl text-white/80"
+          className="mb-6 text-lg text-white/80 sm:mb-8 sm:text-xl"
         >
           <span
             className="font-bold"
@@ -97,18 +97,18 @@ export function YourArenaScreen({ data }: YourArenaScreenProps) {
         {/* Other categories */}
         <motion.div
           variants={fadeInUp}
-          className="flex flex-wrap justify-center gap-3"
+          className="flex flex-wrap justify-center gap-2 sm:gap-3"
         >
           {otherCategories.map(([category, percentage]) => (
             <motion.div
               key={category}
-              className="glass-card flex items-center gap-2 rounded-full px-4 py-2"
+              className="glass-card flex items-center gap-1.5 rounded-full px-3 py-1.5 sm:gap-2 sm:px-4 sm:py-2"
               whileHover={{ scale: 1.05 }}
             >
-              <span className="text-lg">{categoryIcons[category] || '🎯'}</span>
-              <span className="text-sm text-white/80">{category}</span>
+              <span className="text-base sm:text-lg">{categoryIcons[category] || '🎯'}</span>
+              <span className="text-xs text-white/80 sm:text-sm">{category}</span>
               <span
-                className="text-sm font-semibold"
+                className="text-xs font-semibold sm:text-sm"
                 style={{ color: categoryColors[category] || '#ffffff' }}
               >
                 {Math.round(percentage * 100)}%
@@ -121,7 +121,7 @@ export function YourArenaScreen({ data }: YourArenaScreenProps) {
         {data.category_subtext && (
           <motion.p
             variants={fadeInUp}
-            className="mt-8 text-sm italic text-white/50"
+            className="mt-6 px-4 text-xs italic text-white/50 sm:mt-8 sm:text-sm"
           >
             "{data.category_subtext}"
           </motion.p>

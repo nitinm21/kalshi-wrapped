@@ -74,14 +74,14 @@ export function ShareCardScreen({ data }: ShareCardScreenProps) {
       gradient="linear-gradient(135deg, #0a0a0a 0%, #171717 50%, #0a0a0a 100%)"
     >
       <motion.div
-        className="flex max-w-md flex-col items-center"
+        className="flex w-full max-w-md flex-col items-center px-4"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
       >
         <motion.p
           variants={fadeInUp}
-          className="mb-6 text-center text-lg font-light text-white/60"
+          className="mb-4 text-center text-base font-light text-white/60 sm:mb-6 sm:text-lg"
         >
           Share your 2025 story
         </motion.p>
@@ -90,14 +90,14 @@ export function ShareCardScreen({ data }: ShareCardScreenProps) {
         <motion.div
           ref={cardRef}
           variants={fadeInUp}
-          className="relative mb-8 w-full max-w-sm overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black p-6"
+          className="relative mb-6 w-full max-w-sm overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black p-6 sm:mb-8"
           style={{
             aspectRatio: '9/16',
             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
           }}
         >
           {/* Header */}
-          <div className="mb-6 flex items-center justify-between">
+          <div className="mb-4 flex items-center justify-between sm:mb-6">
             <div>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-400">
                 Kalshi
@@ -110,9 +110,9 @@ export function ShareCardScreen({ data }: ShareCardScreenProps) {
           </div>
 
           {/* Icon */}
-          <div className="mb-4 flex justify-center">
+          <div className="mb-3 flex justify-center sm:mb-4">
             <div
-              className="flex h-20 w-20 items-center justify-center rounded-full text-4xl"
+              className="flex h-16 w-16 items-center justify-center rounded-full text-3xl sm:h-20 sm:w-20 sm:text-4xl"
               style={{ background: gradient }}
             >
               {icon}
@@ -121,7 +121,7 @@ export function ShareCardScreen({ data }: ShareCardScreenProps) {
 
           {/* Personality */}
           <h2
-            className="mb-6 text-center text-2xl font-bold"
+            className="mb-4 text-center text-xl font-bold sm:mb-6 sm:text-2xl"
             style={{
               background: gradient,
               WebkitBackgroundClip: 'text',
@@ -133,28 +133,28 @@ export function ShareCardScreen({ data }: ShareCardScreenProps) {
           </h2>
 
           {/* Stats */}
-          <div className="mb-6 space-y-3">
-            <div className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-3">
-              <span className="text-sm text-white/60">Predictions</span>
-              <span className="font-bold text-white">{data.total_predictions}</span>
+          <div className="mb-4 space-y-2 sm:mb-6 sm:space-y-3">
+            <div className="flex items-center justify-between rounded-lg bg-white/5 px-3 py-2 sm:px-4 sm:py-3">
+              <span className="text-xs text-white/60 sm:text-sm">Predictions</span>
+              <span className="text-sm font-bold text-white sm:text-base">{data.total_predictions}</span>
             </div>
-            <div className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-3">
-              <span className="text-sm text-white/60">Against favorites</span>
-              <span className="font-bold text-rose-400">{contrarianPercent}%</span>
+            <div className="flex items-center justify-between rounded-lg bg-white/5 px-3 py-2 sm:px-4 sm:py-3">
+              <span className="text-xs text-white/60 sm:text-sm">Against favorites</span>
+              <span className="text-sm font-bold text-rose-400 sm:text-base">{contrarianPercent}%</span>
             </div>
-            <div className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-3">
-              <span className="text-sm text-white/60">Best call</span>
-              <span className="font-bold text-emerald-400">{entryPrice}¢ → $1</span>
+            <div className="flex items-center justify-between rounded-lg bg-white/5 px-3 py-2 sm:px-4 sm:py-3">
+              <span className="text-xs text-white/60 sm:text-sm">Best call</span>
+              <span className="text-sm font-bold text-emerald-400 sm:text-base">{entryPrice}¢ → $1</span>
             </div>
           </div>
 
           {/* Quote */}
-          <p className="mb-6 text-center text-xs italic text-white/40">
+          <p className="mb-4 px-2 text-center text-xs italic text-white/40 sm:mb-6">
             "{data.personality_description}"
           </p>
 
           {/* Footer */}
-          <div className="absolute bottom-6 left-6 right-6">
+          <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
             <div className="text-center text-xs text-white/30">
               kalshi.com/wrapped
             </div>
@@ -174,10 +174,10 @@ export function ShareCardScreen({ data }: ShareCardScreenProps) {
         {/* Share buttons */}
         <motion.div
           variants={fadeInUp}
-          className="flex w-full max-w-sm gap-3"
+          className="flex w-full max-w-sm flex-col gap-2 sm:flex-row sm:gap-3"
         >
           <button
-            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-white/10 px-4 py-3 text-sm font-medium text-white transition-all hover:bg-white/20"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-white/10 px-3 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/20 sm:px-4 sm:py-3"
             onClick={(e) => {
               e.stopPropagation();
               handleShare('download');
@@ -190,7 +190,7 @@ export function ShareCardScreen({ data }: ShareCardScreenProps) {
           </button>
 
           <button
-            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#1DA1F2] px-4 py-3 text-sm font-medium text-white transition-all hover:bg-[#1a8cd8]"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#1DA1F2] px-3 py-2.5 text-sm font-medium text-white transition-all hover:bg-[#1a8cd8] sm:px-4 sm:py-3"
             onClick={(e) => {
               e.stopPropagation();
               handleShare('twitter');
@@ -203,7 +203,7 @@ export function ShareCardScreen({ data }: ShareCardScreenProps) {
           </button>
 
           <button
-            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-white/10 px-4 py-3 text-sm font-medium text-white transition-all hover:bg-white/20"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-white/10 px-3 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/20 sm:px-4 sm:py-3"
             onClick={(e) => {
               e.stopPropagation();
               handleShare('copy');
@@ -219,7 +219,7 @@ export function ShareCardScreen({ data }: ShareCardScreenProps) {
         {/* Replay hint */}
         <motion.p
           variants={fadeInUp}
-          className="mt-6 text-xs text-white/30"
+          className="mt-4 text-xs text-white/30 sm:mt-6"
         >
           Tap left to replay your Wrapped
         </motion.p>
