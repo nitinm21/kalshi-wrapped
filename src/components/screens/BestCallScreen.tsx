@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ScreenWrapper, staggerContainer, fadeInUp, scaleIn, slideInRight } from '../ui/ScreenWrapper';
+import { ScreenWrapper, staggerContainer, fadeInUp, scaleIn } from '../ui/ScreenWrapper';
 import type { WrappedData } from '../../data/sampleData';
 
 interface BestCallScreenProps {

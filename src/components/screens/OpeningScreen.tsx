@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ScreenWrapper, staggerContainer, fadeInUp, fadeInDown, scaleIn, popIn } from '../ui/ScreenWrapper';
+import { ScreenWrapper, staggerContainer, fadeInUp, fadeInDown, scaleIn } from '../ui/ScreenWrapper';
 import { AnimatedNumber } from '../ui/AnimatedNumber';
 import type { WrappedData } from '../../data/sampleData';
 
@@ -107,7 +107,9 @@ export function OpeningScreen({ data }: OpeningScreenProps) {
 
         {/* Percentile badge */}
         <motion.div
-          variants={popIn}
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 1.2, type: 'spring', stiffness: 200, damping: 20 }}
           className="glass-card-premium group relative overflow-hidden rounded-2xl px-8 py-4 hover-lift"
         >
           <div className="relative z-10 flex items-center gap-2">
