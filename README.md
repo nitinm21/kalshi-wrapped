@@ -2,28 +2,6 @@
 
 A cinematic, mobile-first year-in-review experience for Kalshi traders, inspired by Spotify Wrapped.
 
-## Features
-
-- **11 Interactive Screens**: Tap or swipe through your personalized 2025 prediction journey
-- **Smooth Animations**: 60fps transitions powered by Framer Motion
-- **Mobile-First Design**: Optimized for iOS and Android with haptic feedback
-- **Shareable Cards**: Generate and share your prediction personality to social media
-- **Desktop Support**: Full keyboard navigation (arrow keys, spacebar)
-
-## Screens
-
-1. **The Opening** - Total predictions and percentile ranking
-2. **Days in the Arena** - Active days and longest streak with calendar heatmap
-3. **Your Arena** - Top category breakdown with animated bubbles
-4. **The Contrarian Score** - Consensus vs contrarian spectrum
-5. **Your Best Call** - Biggest winning prediction with price chart
-6. **The One That Got Away** - A notable miss with context
-7. **Your Timing** - Early mover vs wait-and-see profile
-8. **Worldview Map** - Belief dimensions (underdogs, chaos, etc.)
-9. **Prediction Personality** - Your archetype reveal (e.g., "The Dynasty Killer")
-10. **What's Next** - Personalized market recommendations
-11. **Share Card** - Downloadable/shareable summary card
-
 ## Tech Stack
 
 - **React 19** + TypeScript
