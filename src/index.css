@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+@theme {
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Kalshi Official Brand Colors */
+  --color-kalshi-primary: #09C285;
+  --color-kalshi-secondary: #003221;
+  --color-kalshi-yes: #265CFF;
+  --color-kalshi-no: #AA00FF;
+  --color-kalshi-increase: #0AC285;
+  --color-kalshi-decrease: #D91616;
+  --color-kalshi-black: rgba(0, 0, 0, 0.9);
+
+  /* Extended palette for UI */
+  --color-kalshi-green-bright: #0FE29B;
+  --color-kalshi-green-dark: #068B5F;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: pan-y;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+  font-family: var(--font-family-sans);
+  position: relative;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Premium grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.8;
+  mix-blend-mode: overlay;
+}
+
+/* Custom scrollbar (hide it) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Gradient text utilities */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-kalshi-primary) 0%, var(--color-kalshi-yes) 50%, var(--color-kalshi-no) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-kalshi {
+  background: linear-gradient(120deg, var(--color-kalshi-green-bright) 0%, var(--color-kalshi-primary) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-text 3s ease-in-out infinite;
+}
+
+@keyframes shimmer-text {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* Animated gradient background */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #1a1a2e);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Premium glassmorphism cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-card-premium {
+  background: linear-gradient(135deg, rgba(9, 194, 133, 0.05) 0%, rgba(0, 50, 33, 0.1) 100%);
+  backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(9, 194, 133, 0.2);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(9, 194, 133, 0.1),
+    inset 0 1px 0 0 rgba(9, 194, 133, 0.1);
+}
+
+/* Enhanced glow effects */
+.glow-kalshi {
+  box-shadow:
+    0 0 60px rgba(9, 194, 133, 0.4),
+    0 0 120px rgba(9, 194, 133, 0.2);
+}
+
+.glow-yes {
+  box-shadow:
+    0 0 40px rgba(38, 92, 255, 0.5),
+    0 0 80px rgba(38, 92, 255, 0.2);
+}
+
+.glow-no {
+  box-shadow:
+    0 0 40px rgba(170, 0, 255, 0.5),
+    0 0 80px rgba(170, 0, 255, 0.2);
+}
+
+.glow-increase {
+  box-shadow:
+    0 0 40px rgba(10, 194, 133, 0.5),
+    0 0 80px rgba(10, 194, 133, 0.2);
+}
+
+.glow-decrease {
+  box-shadow:
+    0 0 40px rgba(217, 22, 22, 0.5),
+    0 0 80px rgba(217, 22, 22, 0.2);
+}
+
+/* Number animation placeholder */
+@keyframes count-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Shimmer effect for loading states */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Pulse ring animation */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Safe area padding for mobile */
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Advanced animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  66% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slide-up-fade {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in-bounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes border-dance {
+  0%, 100% {
+    border-color: rgba(9, 194, 133, 0.2);
+  }
+  50% {
+    border-color: rgba(9, 194, 133, 0.5);
+  }
+}
+
+/* Particle effects */
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(9, 194, 133, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 8s infinite;
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Magnetic button effect */
+.magnetic {
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Text shimmer on load */
+@keyframes text-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
